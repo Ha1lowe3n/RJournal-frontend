@@ -12,7 +12,7 @@ export const Header: React.FC = () => {
     return (
         <Paper classes={{ root: styles.root }} elevation={0} square={true}>
             <div className="d-flex align-center">
-                <IconButton>
+                <IconButton style={{ color: "black" }}>
                     <MenuIcon />
                 </IconButton>
 
@@ -21,7 +21,6 @@ export const Header: React.FC = () => {
                     <path d="M0 7h8.5v18l6.5-6V7h9V0H0v7z"></path>
                     <path fill="rgba(0,0,0,0.15)" d="M7.5 19h1v6l-1-6z"></path>
                 </svg>
-
                 <div className={styles.searchBox}>
                     <svg
                         className={styles.searchIcon}
@@ -32,20 +31,23 @@ export const Header: React.FC = () => {
                     </svg>
                     <input placeholder="Поиск" />
                 </div>
-
                 <button className={styles.createNewBtn}>Новая запись</button>
             </div>
 
             <div className="d-flex align-center">
-                <IconButton>
+                <IconButton className={styles.iconButton}>
                     <SmsIcon />
                 </IconButton>
 
-                <IconButton>
+                <IconButton className={styles.iconButton + " " + "ml-10"}>
                     <NotificationsNoneOutlinedIcon />
                 </IconButton>
 
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                <Avatar
+                    className="ml-15"
+                    alt="Remy Sharp"
+                    src="/static/images/avatar/1.jpg"
+                />
             </div>
         </Paper>
     );
