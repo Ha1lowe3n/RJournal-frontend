@@ -3,6 +3,7 @@ import Head from "next/head";
 import { Post } from "../components/Post";
 
 import { Header } from "../components/Header";
+import { LeftMenu } from "../components/LeftMenu";
 
 const Home: NextPage = () => {
     return (
@@ -28,8 +29,13 @@ const Home: NextPage = () => {
 
             <Header />
 
-            <div>
-                <div></div>
+            <div className="wrapper">
+                <LeftMenu />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
                 <Post />
                 <div></div>
             </div>

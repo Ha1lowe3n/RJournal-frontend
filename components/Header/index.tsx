@@ -2,9 +2,10 @@ import React from "react";
 
 import { Paper, Button, IconButton, Avatar } from "@mui/material";
 import CreateIcon from "@mui/icons-material/Create";
-import SmsIcon from "@mui/icons-material/Sms";
+import SmsOutlinedIcon from "@mui/icons-material/SmsOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { styled } from "@mui/material/styles";
 import styles from "./Header.module.scss";
 
@@ -36,7 +37,7 @@ export const Header: React.FC = () => {
 
             <div className="d-flex align-center">
                 <IconButton className={styles.iconButton}>
-                    <SmsIcon />
+                    <SmsOutlinedIcon />
                 </IconButton>
 
                 <IconButton className={styles.iconButton + " " + "ml-10"}>
@@ -44,10 +45,11 @@ export const Header: React.FC = () => {
                 </IconButton>
 
                 <Avatar
-                    className="ml-15"
+                    className={styles.avatar}
                     alt="Remy Sharp"
                     src="/static/images/avatar/1.jpg"
                 />
+                <KeyboardArrowDownIcon />
             </div>
         </Paper>
     );

@@ -1,7 +1,7 @@
 .content {
     max-width: 640px;
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto 28px auto;
     border-radius: 5px;
     padding: 16px 20px;
 
@@ -25,6 +25,10 @@
                 .categoryImg {
                     margin-right: 10px;
                     block-size: 22px;
+
+                    img {
+                        border-radius: 4px;
+                    }
                 }
 
                 .titleCategory {
