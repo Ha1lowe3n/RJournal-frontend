@@ -6,10 +6,11 @@ import Link from "next/link";
 import { IconButton } from "@mui/material";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import styles from "./Post.module.scss";
+import clsx from "clsx";
 
 export const Post: React.FC = () => {
     return (
-        <Paper elevation={0} className={styles.content}>
+        <Paper elevation={0} className={clsx(styles.content)}>
             <div className={styles.top}>
                 <div className={styles.topInformation}>
                     <a className={styles.category}>

@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 import { Paper, Button, IconButton, Avatar } from "@mui/material";
 import CreateIcon from "@mui/icons-material/Create";
@@ -8,6 +9,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import { styled } from "@mui/material/styles";
 import styles from "./Header.module.scss";
+import { TJButton } from "../assets/WhiteButton";
 
 export const Header: React.FC = () => {
     return (
@@ -17,11 +19,19 @@ export const Header: React.FC = () => {
                     <MenuIcon />
                 </IconButton>
 
-                <svg className={styles.logo} viewBox="0 0 24 25" id="site_logo">
-                    <path fill="#e8a427" d="M0 19h8.5v6H0v-6z"></path>
-                    <path d="M0 7h8.5v18l6.5-6V7h9V0H0v7z"></path>
-                    <path fill="rgba(0,0,0,0.15)" d="M7.5 19h1v6l-1-6z"></path>
-                </svg>
+                <Link href="/">
+                    <a className={styles.logo}>
+                        <svg viewBox="0 0 24 25" id="site_logo">
+                            <path fill="#e8a427" d="M0 19h8.5v6H0v-6z"></path>
+                            <path d="M0 7h8.5v18l6.5-6V7h9V0H0v7z"></path>
+                            <path
+                                fill="rgba(0,0,0,0.15)"
+                                d="M7.5 19h1v6l-1-6z"
+                            ></path>
+                        </svg>
+                    </a>
+                </Link>
+
                 <div className={styles.searchBox}>
                     <svg
                         className={styles.searchIcon}
@@ -32,7 +42,7 @@ export const Header: React.FC = () => {
                     </svg>
                     <input placeholder="Поиск" />
                 </div>
-                <button className={styles.createNewBtn}>Новая запись</button>
+                <TJButton>Новая запись</TJButton>
             </div>
 
             <div className="d-flex align-center">
@@ -44,12 +54,16 @@ export const Header: React.FC = () => {
                     <NotificationsNoneOutlinedIcon />
                 </IconButton>
 
-                <Avatar
-                    className={styles.avatar}
-                    alt="Remy Sharp"
-                    src="/static/images/avatar/1.jpg"
-                />
-                <KeyboardArrowDownIcon />
+                <Link href="/profile/1">
+                    <a className={styles.avatarBlock}>
+                        <Avatar
+                            className={styles.avatar}
+                            alt="Remy Sharp"
+                            src="https://leonardo.osnova.io/5ffeac9a-a0e5-5be6-98af-659bfaabd2a6/-/scale_crop/108x108/-/format/webp/"
+                        />
+                        <KeyboardArrowDownIcon />
+                    </a>
+                </Link>
             </div>
         </Paper>
     );

@@ -2,6 +2,7 @@ import React from "react";
 import clsx from "clsx";
 import { LeftMenu } from "../components/LeftMenu";
 import { SideComments } from "../components/SideComments";
+import { Header } from "../components/Header";
 
 interface MainLayoutProps {
     hideComments?: boolean;
@@ -16,17 +17,21 @@ export const MainLayout: React.FC<MainLayoutProps> = ({
     className,
 }) => {
     return (
-        <div className={clsx("wrapper", className)}>
-            <LeftMenu />
+        <>
+            <Header />
 
-            <div
-                className={clsx("content", {
-                    "content--full": contentFullWidth,
-                })}
-            >
-                {children}
+            <div className={clsx("wrapper", className)}>
+                <LeftMenu />
+
+                <div
+                    className={clsx("content", {
+                        "content--full": contentFullWidth,
+                    })}
+                >
+                    {children}
+                </div>
+                {!hideComments && <SideComments />}
             </div>
-            {!hideComments && <SideComments />}
-        </div>
+        </>
     );
 };

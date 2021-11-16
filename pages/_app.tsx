@@ -1,8 +1,6 @@
-import "../styles/globals.css";
+import "../styles/globals.scss";
 import "macro-css";
 import type { AppProps } from "next/app";
-import { ThemeProvider } from "@mui/material/styles";
-import { theme } from "../theme";
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }: AppProps) {

@@ -1,0 +1,24 @@
+.whiteBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 135px;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 10%), 0 2px 5px rgb(0 0 0 / 5%),
+        0 -1px 0 rgb(0 0 0 / 5%), -1px 0 0 rgb(0 0 0 / 10%),
+        1px 0 0 rgb(0 0 0 / 10%);
+
+    &:hover {
+        box-shadow: 0 1px 1px rgb(0 0 0 / 15%), 0 4px 7px rgb(0 0 0 / 5%),
+            0 -1px 0 rgb(0 0 0 / 5%), -1px 0 0 rgb(0 0 0 / 5%),
+            1px 0 0 rgb(0 0 0 / 5%);
+    }
+    &:active {
+        padding-top: 5px;
+    }
+}
