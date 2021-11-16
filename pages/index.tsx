@@ -4,6 +4,7 @@ import { Post } from "../components/Post";
 
 import { Header } from "../components/Header";
 import { LeftMenu } from "../components/LeftMenu";
+import { SideComments } from "../components/SideComments";
 
 const Home: NextPage = () => {
     return (
@@ -31,13 +32,15 @@ const Home: NextPage = () => {
 
             <div className="wrapper">
                 <LeftMenu />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <div></div>
+                <div className="posts">
+                    {Array(3)
+                        .fill(0)
+                        .map((_, i) => (
+                            <Post key={i} />
+                        ))}
+                </div>
+
+                <SideComments />
             </div>
         </div>
     );

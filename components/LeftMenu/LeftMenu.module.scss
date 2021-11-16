@@ -1,7 +1,9 @@
 .menu {
-    position: fixed;
-    width: 200px;
+    position: sticky;
+    top: 75px;
+    min-width: 200px;
     margin: 0 10px;
+    height: calc(100vh - 75px);
 
     li {
         list-style: none;
