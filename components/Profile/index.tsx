@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import Link from "next/link";
+import clsx from "clsx";
 
 import { Avatar, Paper } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
 import SmsOutlinedIcon from "@mui/icons-material/SmsOutlined";
 import styles from "./Profile.module.scss";
-import clsx from "clsx";
-import { TJButton } from "../assets/WhiteButton";
 
-export const ProfileComponent = () => {
+import { TJButton } from "../assets/WhiteButton";
+import { Post } from "../Post";
+
+export const ProfileComponent: React.FC = () => {
     const [active, setActive] = useState<number>(0);
 
     const categories = [
@@ -65,6 +67,20 @@ export const ProfileComponent = () => {
                     </TJButton>
                 </div>
             </Paper>
+
+            <div className={styles.profileCategotyElements}>
+                <Post />
+
+                <Paper elevation={0} className={styles.followers}>
+                    <div>Подписчики</div>
+                    <div className={styles.avatars}>
+                        <Avatar className="mr-15">H</Avatar>
+                        <Avatar className="mr-15" sx={{ bgcolor: "orange" }}>
+                            N
+                        </Avatar>
+                    </div>
+                </Paper>
+            </div>
         </>
     );
 };
