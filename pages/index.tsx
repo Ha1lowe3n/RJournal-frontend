@@ -6,17 +6,15 @@ import { MainLayout } from "../layouts/MainLayout";
 
 const Home: NextPage = () => {
     return (
-        <div>
-            <MainLayout>
-                <div className="mt-15">
-                    {Array(3)
-                        .fill(0)
-                        .map((_, i) => (
-                            <Post key={i} />
-                        ))}
-                </div>
-            </MainLayout>
-        </div>
+        <MainLayout>
+            <div className="mt-15">
+                {Array(3)
+                    .fill(0)
+                    .map((_, i) => (
+                        <Post key={i} />
+                    ))}
+            </div>
+        </MainLayout>
     );
 };
 

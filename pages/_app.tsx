@@ -2,6 +2,8 @@ import "../styles/globals.scss";
 import "macro-css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { Header } from "../components/Header";
+import { MainLayout } from "../layouts/MainLayout";
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (
@@ -24,6 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
                     rel="stylesheet"
                 />
             </Head>
+            <Header />
             <Component {...pageProps} />
         </>
     );

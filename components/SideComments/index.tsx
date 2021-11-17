@@ -98,7 +98,11 @@ interface CommentProps {
     };
 }
 
-const Comment: React.FC<CommentProps> = ({ user, text, post }) => {
+const Comment: React.FC<CommentProps> = React.memo(function Comment({
+    user,
+    text,
+    post,
+}) {
     return (
         <div className={styles.post}>
             <a>
@@ -123,9 +127,9 @@ const Comment: React.FC<CommentProps> = ({ user, text, post }) => {
             </a>
         </div>
     );
-};
+});
 
-export const SideComments = () => {
+export const SideComments = React.memo(function SideComments() {
     return (
         <div className={styles.comments}>
             <div className={styles.showOrHide}>
@@ -140,4 +144,4 @@ export const SideComments = () => {
             </div>
         </div>
     );
-};
+});

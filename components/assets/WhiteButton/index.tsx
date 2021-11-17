@@ -7,8 +7,11 @@ interface TJButtonProps {
     className?: string;
 }
 
-export const TJButton: React.FC<TJButtonProps> = ({ children, className }) => {
+export const TJButton: React.FC<TJButtonProps> = React.memo(function TJButton({
+    children,
+    className,
+}) {
     return (
         <button className={clsx(styles.whiteBtn, className)}>{children}</button>
     );
-};
+});

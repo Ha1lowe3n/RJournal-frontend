@@ -7,7 +7,9 @@ import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import styles from "./LeftMenu.module.scss";
 
-export const LeftMenu: React.FC = () => {
+export const LeftMenu: React.FC = React.memo(function LeftMenu() {
+    console.log("LeftMenu render");
+
     return (
         <div className={styles.menu}>
             <ul>
@@ -38,4 +40,4 @@ export const LeftMenu: React.FC = () => {
             </ul>
         </div>
     );
-};
+});

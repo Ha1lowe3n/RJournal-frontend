@@ -1,17 +1,18 @@
 import React from "react";
 import Link from "next/link";
 
-import { Paper, Button, IconButton, Avatar } from "@mui/material";
-import CreateIcon from "@mui/icons-material/Create";
+import { Paper, IconButton, Avatar } from "@mui/material";
 import SmsOutlinedIcon from "@mui/icons-material/SmsOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { styled } from "@mui/material/styles";
 import styles from "./Header.module.scss";
+
 import { TJButton } from "../assets/WhiteButton";
 
-export const Header: React.FC = () => {
+export const Header: React.FC = React.memo(function Header() {
+    console.log("header rerender");
+
     return (
         <Paper classes={{ root: styles.root }} elevation={0} square={true}>
             <div className="d-flex align-center">
@@ -67,4 +68,4 @@ export const Header: React.FC = () => {
             </div>
         </Paper>
     );
-};
+});

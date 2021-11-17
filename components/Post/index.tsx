@@ -14,7 +14,9 @@ import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import styles from "./Post.module.scss";
 import clsx from "clsx";
 
-export const Post: React.FC = () => {
+export const Post: React.FC = React.memo(function Post() {
+    console.log("post render");
+
     return (
         <Paper elevation={0} className={clsx(styles.content)}>
             <div className={styles.top}>
@@ -100,4 +102,4 @@ export const Post: React.FC = () => {
             </div>
         </Paper>
     );
-};
+});

@@ -10,77 +10,98 @@ import styles from "./Profile.module.scss";
 import { TJButton } from "../assets/WhiteButton";
 import { Post } from "../Post";
 
-export const ProfileComponent: React.FC = () => {
-    const [active, setActive] = useState<number>(0);
+export const ProfileComponent: React.FC = React.memo(
+    function ProfileComponent() {
+        console.log("profile render");
 
-    const categories = [
-        "Статьи",
-        "Комментарии",
-        "Черновики",
-        "Уведомления",
-        "Донаты",
-        "Подробнее",
-    ];
+        const [active, setActive] = useState<number>(0);
 
-    return (
-        <>
-            <Paper className={styles.profileInfo} elevation={0}>
-                <div className={styles.information}>
-                    <Avatar
-                        className={styles.avatar}
-                        src="https://leonardo.osnova.io/5ffeac9a-a0e5-5be6-98af-659bfaabd2a6/-/scale_crop/108x108/-/format/webp/"
-                    />
+        console.log(active);
 
-                    <div className={styles.fullname}>Вася Пупкин</div>
+        const categories = [
+            "Статьи",
+            "Комментарии",
+            "Черновики",
+            "Уведомления",
+            "Донаты",
+            "Подробнее",
+        ];
 
-                    <div className={styles.carmaAndFollowers}>
-                        <div className={styles.carma}>+ 208</div>
-                        <div>2 подписчика</div>
-                    </div>
+        return (
+            <>
+                <Paper className={styles.profileInfo} elevation={0}>
+                    <div className={styles.information}>
+                        <Avatar
+                            className={styles.avatar}
+                            src="https://leonardo.osnova.io/5ffeac9a-a0e5-5be6-98af-659bfaabd2a6/-/scale_crop/108x108/-/format/webp/"
+                        />
 
-                    <div className="mt-20">На проекте с 15 ноя 2021</div>
+                        <div className={styles.fullname}>Вася Пупкин</div>
 
-                    <div className={styles.categories}>
-                        {categories.map((category, i) => (
-                            <Link key={category + i} href="#">
-                                <a onClick={() => setActive(i)}>
+                        <div className={styles.carmaAndFollowers}>
+                            <div className={styles.carma}>+ 208</div>
+                            <div>2 подписчика</div>
+                        </div>
+
+                        <div className="mt-20">На проекте с 15 ноя 2021</div>
+
+                        <div className={styles.categories}>
+                            {categories.map((category, i) => {
+                                return active === i ? (
                                     <div
-                                        className={clsx(styles.category, {
-                                            [styles.active]: active === i,
-                                        })}
+                                        key={category + i}
+                                        className={clsx(
+                                            styles.category,
+                                            styles.active
+                                        )}
                                     >
                                         {category}
                                     </div>
-                                </a>
-                            </Link>
-                        ))}
+                                ) : (
+                                    <Link key={category + i} href="#">
+                                        <a onClick={() => setActive(i)}>
+                                            <div
+                                                className={clsx(
+                                                    styles.category
+                                                )}
+                                            >
+                                                {category}
+                                            </div>
+                                        </a>
+                                    </Link>
+                                );
+                            })}
+                        </div>
                     </div>
-                </div>
 
-                <div className={styles.buttons}>
-                    <TJButton className={styles.whiteBtn}>
-                        <SettingsIcon />
-                    </TJButton>
-                    <TJButton className={styles.blueBtn}>
-                        <SmsOutlinedIcon />
-                        <span>Написать</span>
-                    </TJButton>
-                </div>
-            </Paper>
-
-            <div className={styles.profileCategotyElements}>
-                <Post />
-
-                <Paper elevation={0} className={styles.followers}>
-                    <div>Подписчики</div>
-                    <div className={styles.avatars}>
-                        <Avatar className="mr-15">H</Avatar>
-                        <Avatar className="mr-15" sx={{ bgcolor: "orange" }}>
-                            N
-                        </Avatar>
+                    <div className={styles.buttons}>
+                        <TJButton className={styles.whiteBtn}>
+                            <SettingsIcon />
+                        </TJButton>
+                        <TJButton className={styles.blueBtn}>
+                            <SmsOutlinedIcon />
+                            <span>Написать</span>
+                        </TJButton>
                     </div>
                 </Paper>
-            </div>
-        </>
-    );
-};
+
+                <div className={styles.profileCategotyElements}>
+                    <Post />
+
+                    <Paper elevation={0} className={styles.followers}>
+                        <div>Подписчики</div>
+                        <div className={styles.avatars}>
+                            <Avatar className="mr-15">H</Avatar>
+                            <Avatar
+                                className="mr-15"
+                                sx={{ bgcolor: "orange" }}
+                            >
+                                N
+                            </Avatar>
+                        </div>
+                    </Paper>
+                </div>
+            </>
+        );
+    }
+);
