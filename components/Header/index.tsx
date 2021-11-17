@@ -8,7 +8,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import styles from "./Header.module.scss";
 
-import { TJButton } from "../assets/WhiteButton";
+import { TJButton } from "../assets/TJButton";
 
 export const Header: React.FC = React.memo(function Header() {
     console.log("header rerender");

@@ -7,7 +7,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import SmsOutlinedIcon from "@mui/icons-material/SmsOutlined";
 import styles from "./Profile.module.scss";
 
-import { TJButton } from "../assets/WhiteButton";
+import { TJButton } from "../assets/TJButton";
 import { Post } from "../Post";
 
 export const ProfileComponent: React.FC = React.memo(
@@ -60,11 +60,7 @@ export const ProfileComponent: React.FC = React.memo(
                                 ) : (
                                     <Link key={category + i} href="#">
                                         <a onClick={() => setActive(i)}>
-                                            <div
-                                                className={clsx(
-                                                    styles.category
-                                                )}
-                                            >
+                                            <div className={styles.category}>
                                                 {category}
                                             </div>
                                         </a>
@@ -75,9 +71,14 @@ export const ProfileComponent: React.FC = React.memo(
                     </div>
 
                     <div className={styles.buttons}>
-                        <TJButton className={styles.whiteBtn}>
-                            <SettingsIcon />
-                        </TJButton>
+                        <Link href="/profile/settings">
+                            <a>
+                                <TJButton className={styles.whiteBtn}>
+                                    <SettingsIcon />
+                                </TJButton>
+                            </a>
+                        </Link>
+
                         <TJButton className={styles.blueBtn}>
                             <SmsOutlinedIcon />
                             <span>Написать</span>
