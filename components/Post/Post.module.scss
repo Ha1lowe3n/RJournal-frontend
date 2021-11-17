@@ -3,7 +3,7 @@
     width: 100%;
     margin-bottom: 28px;
     border-radius: 8px;
-    padding: 16px 20px;
+    padding: 16px 20px 16px 20px;
 
     .top {
         display: flex;
@@ -111,5 +111,54 @@
         width: 100%;
         margin: 4px auto 0 auto;
         block-size: 340px;
+    }
+
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+
+        .footerLeft {
+            display: flex;
+
+            .item {
+                margin-right: 33px;
+                height: 24px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+
+                span {
+                    margin-left: 4px;
+                    font-size: 16px;
+                    font-weight: 500;
+                    line-height: 24px;
+                }
+
+                svg {
+                    height: 24px;
+                    width: 24px;
+                }
+
+                &:hover {
+                    color: #3766a9;
+                }
+            }
+        }
+
+        .footerRight {
+            display: flex;
+            align-items: center;
+
+            svg {
+                height: 30px;
+                width: 30px;
+            }
+
+            span {
+                color: #2ea83a;
+            }
+        }
     }
 }

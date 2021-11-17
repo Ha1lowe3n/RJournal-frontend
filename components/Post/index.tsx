@@ -5,6 +5,12 @@ import Link from "next/link";
 
 import { IconButton } from "@mui/material";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
+import ModeCommentOutlinedIcon from "@mui/icons-material/ModeCommentOutlined";
+import ChangeCircleOutlinedIcon from "@mui/icons-material/ChangeCircleOutlined";
+import BookmarkBorderOutlinedIcon from "@mui/icons-material/BookmarkBorderOutlined";
+import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import styles from "./Post.module.scss";
 import clsx from "clsx";
 
@@ -50,6 +56,47 @@ export const Post: React.FC = () => {
                     width="600"
                     height="340"
                 />
+            </div>
+
+            <div className={styles.footer}>
+                <div className={styles.footerLeft}>
+                    <div className={styles.item}>
+                        <ModeCommentOutlinedIcon />
+                        <span>0</span>
+                    </div>
+                    <div className={styles.item}>
+                        <ChangeCircleOutlinedIcon />
+                        <span>0</span>
+                    </div>
+                    <div className={styles.item}>
+                        <BookmarkBorderOutlinedIcon />
+                    </div>
+                    <div className={styles.item}>
+                        <FileUploadOutlinedIcon />
+                    </div>
+                </div>
+
+                <div className={styles.footerRight}>
+                    <IconButton
+                        style={{
+                            height: "24px",
+                            width: "24px",
+                            marginRight: "12px",
+                        }}
+                    >
+                        <KeyboardArrowDownIcon />
+                    </IconButton>
+                    <span>50</span>
+                    <IconButton
+                        style={{
+                            height: "24px",
+                            width: "24px",
+                            marginLeft: "12px",
+                        }}
+                    >
+                        <KeyboardArrowUpIcon />
+                    </IconButton>
+                </div>
             </div>
         </Paper>
     );
