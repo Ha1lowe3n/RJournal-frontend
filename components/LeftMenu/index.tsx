@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 import { Button } from "@mui/material";
 import WhatshotOutlinedIcon from "@mui/icons-material/WhatshotOutlined";
@@ -26,10 +27,14 @@ export const LeftMenu: React.FC = React.memo(function LeftMenu() {
                     </Button>
                 </li>
                 <li>
-                    <Button>
-                        <TrendingUpIcon />
-                        <p>Рейтинг TJ</p>
-                    </Button>
+                    <Link href="/rating">
+                        <a>
+                            <Button>
+                                <TrendingUpIcon />
+                                <p>Рейтинг TJ</p>
+                            </Button>
+                        </a>
+                    </Link>
                 </li>
                 <li>
                     <Button>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import Link from "next/link";
 import clsx from "clsx";
 
@@ -9,23 +9,20 @@ import styles from "./Profile.module.scss";
 
 import { TJButton } from "../assets/TJButton";
 import { Post } from "../Post";
+import { Tabs } from "../assets/Tabs";
 
 export const ProfileComponent: React.FC = React.memo(
     function ProfileComponent() {
-        console.log("profile render");
-
-        const [active, setActive] = useState<number>(0);
-
-        console.log(active);
-
-        const categories = [
-            "Статьи",
-            "Комментарии",
-            "Черновики",
-            "Уведомления",
-            "Донаты",
-            "Подробнее",
-        ];
+        const categories = useMemo(() => {
+            return [
+                "Статьи",
+                "Комментарии",
+                "Черновики",
+                "Уведомления",
+                "Донаты",
+                "Подробнее",
+            ];
+        }, []);
 
         return (
             <>
@@ -45,29 +42,7 @@ export const ProfileComponent: React.FC = React.memo(
 
                         <div className="mt-20">На проекте с 15 ноя 2021</div>
 
-                        <div className={styles.categories}>
-                            {categories.map((category, i) => {
-                                return active === i ? (
-                                    <div
-                                        key={category + i}
-                                        className={clsx(
-                                            styles.category,
-                                            styles.active
-                                        )}
-                                    >
-                                        {category}
-                                    </div>
-                                ) : (
-                                    <Link key={category + i} href="#">
-                                        <a onClick={() => setActive(i)}>
-                                            <div className={styles.category}>
-                                                {category}
-                                            </div>
-                                        </a>
-                                    </Link>
-                                );
-                            })}
-                        </div>
+                        <Tabs categories={categories} />
                     </div>
 
                     <div className={styles.buttons}>
