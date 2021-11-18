@@ -42,7 +42,10 @@ export const ProfileComponent: React.FC = React.memo(
 
                         <div className="mt-20">На проекте с 15 ноя 2021</div>
 
-                        <Tabs categories={categories} />
+                        <Tabs
+                            categories={categories}
+                            style={{ width: "704px" }}
+                        />
                     </div>
 
                     <div className={styles.buttons}>

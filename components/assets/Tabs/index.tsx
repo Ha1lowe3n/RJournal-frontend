@@ -6,13 +6,21 @@ import styles from "./Tabs.module.scss";
 
 interface TabsProps {
     categories: string[];
+    className?: string;
+    style?: {
+        [key: string]: string;
+    };
 }
 
-export const Tabs: React.FC<TabsProps> = ({ categories }) => {
+export const Tabs: React.FC<TabsProps> = React.memo(function Tabs({
+    categories,
+    className,
+    style,
+}) {
     const [active, setActive] = useState<number>(0);
 
     return (
-        <div className={styles.categories}>
+        <div className={clsx(styles.categories, className)} style={style}>
             {categories.map((category, i) => {
                 return active === i ? (
                     <div
@@ -31,4 +39,4 @@ export const Tabs: React.FC<TabsProps> = ({ categories }) => {
             })}
         </div>
     );
-};
+});

@@ -6,7 +6,7 @@ import { Rating } from "../components/Rating";
 
 const Profile: NextPage = () => {
     return (
-        <MainLayout hideComments contentFullWidth>
+        <MainLayout contentFullWidth>
             <Rating />
         </MainLayout>
     );
