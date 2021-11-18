@@ -20,48 +20,6 @@
         }
     }
 
-    .items {
-        .item {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.07);
-
-            padding: 15px 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            .link {
-                flex-basis: 60%;
-
-                a {
-                    display: flex;
-                    align-items: center;
-
-                    .place {
-                        margin-right: 12px;
-                        font-size: 13px;
-                    }
-
-                    .title {
-                        font-size: 15px;
-                        font-weight: 500;
-                    }
-
-                    img {
-                        padding-right: 8px !important;
-                    }
-                }
-
-                &:hover {
-                    color: #3766a9;
-                }
-            }
-
-            .ratingNumber {
-                flex-grow: 1;
-            }
-        }
-    }
-
     .showMore {
         display: flex;
         align-items: center;

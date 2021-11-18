@@ -8,8 +8,11 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import styles from "./RatingList.module.scss";
 import { TJButton } from "../../assets/TJButton";
+import { RatingItem } from "./RatingItem";
 
-export const RatingList: React.FC = () => {
+export const RatingList: React.FC = React.memo(function RatingList() {
+    console.log("RatingList");
+
     const items = useMemo(() => {
         return [
             {
@@ -41,32 +44,13 @@ export const RatingList: React.FC = () => {
             </div>
             <div className={styles.items}>
                 {items.map((item, i) => (
-                    <div key={item.title + i} className={styles.item}>
-                        <div className={styles.link}>
-                            <Link href="#">
-                                <a>
-                                    <span className={styles.place}>
-                                        {item.place}
-                                    </span>
-                                    <Image
-                                        src={item.image}
-                                        alt="avatar"
-                                        width="30"
-                                        height="30"
-                                    />
-                                    <span className={styles.title}>
-                                        {item.title}
-                                    </span>
-                                </a>
-                            </Link>
-                        </div>
-
-                        <div className={styles.ratingNumber}>{item.rating}</div>
-
-                        <TJButton style={{ width: "44px", height: "40px" }}>
-                            <PersonAddIcon />
-                        </TJButton>
-                    </div>
+                    <RatingItem
+                        key={item.title + i}
+                        place={item.place}
+                        title={item.title}
+                        rating={item.rating}
+                        image={item.image}
+                    />
                 ))}
             </div>
             <div className={styles.showMore}>
@@ -75,4 +59,4 @@ export const RatingList: React.FC = () => {
             </div>
         </Paper>
     );
-};
+});
