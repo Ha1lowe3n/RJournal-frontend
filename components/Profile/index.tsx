@@ -13,6 +13,8 @@ import { Tabs } from "../assets/Tabs";
 
 export const ProfileComponent: React.FC = React.memo(
     function ProfileComponent() {
+        console.log("profile component rerender");
+
         const categories = useMemo(() => {
             return [
                 "Статьи",

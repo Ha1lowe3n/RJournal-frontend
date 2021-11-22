@@ -18,7 +18,6 @@ interface RatingItemProps {
 export const RatingItem: React.FC<RatingItemProps> = React.memo(
     function RatingItem({ place, image, title, rating }) {
         const [follow, setFollow] = useState<boolean>(false);
-        console.log("RatingItem");
 
         return (
             <div className={styles.item}>

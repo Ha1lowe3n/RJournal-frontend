@@ -49,31 +49,29 @@ export const TJInput: React.FC<TJInputProps> = React.memo(function TJInput({
                         <KeyboardArrowUpIcon />
                     ))}
             </div>
-            {!hide && (
+            {!hide && datalist && (
                 <Paper className={styles.hiddenList}>
                     <div
                         className={clsx(styles.listItem, {
-                            [styles.active]:
-                                datalist && valueInput === datalist[0],
+                            [styles.active]: valueInput === datalist[0],
                         })}
                         onClick={() => {
-                            datalist && setValueInput(datalist[0]);
+                            setValueInput(datalist[0]);
                             showOrHideHiddentList();
                         }}
                     >
-                        Показывать когда я онлайн
+                        {datalist[0]}
                     </div>
                     <div
                         onClick={() => {
-                            datalist && setValueInput(datalist[1]);
+                            setValueInput(datalist[1]);
                             showOrHideHiddentList();
                         }}
                         className={clsx(styles.listItem, {
-                            [styles.active]:
-                                datalist && valueInput === datalist[1],
+                            [styles.active]: valueInput === datalist[1],
                         })}
                     >
-                        ратата
+                        {datalist[1]}
                     </div>
                 </Paper>
             )}
