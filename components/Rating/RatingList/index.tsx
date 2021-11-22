@@ -1,13 +1,10 @@
 import { Paper } from "@mui/material";
 import clsx from "clsx";
-import Link from "next/link";
-import Image from "next/image";
 import React, { useMemo } from "react";
 
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import styles from "./RatingList.module.scss";
-import { TJButton } from "../../assets/TJButton";
+
 import { RatingItem } from "./RatingItem";
 
 export const RatingList: React.FC = React.memo(function RatingList() {

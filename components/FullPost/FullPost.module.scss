@@ -1,0 +1,108 @@
+.wrapper {
+    padding: 30px 0;
+    border-radius: 0 0 5px 5px;
+
+    .top {
+        width: 600px;
+        margin: 0 auto;
+
+        .title {
+            font-size: 36px;
+            font-weight: 500;
+            line-height: 47px;
+            margin: 14px 0 15px 0;
+        }
+
+        p {
+            font-size: 18px;
+            line-height: 29px;
+            margin-bottom: 15px;
+        }
+
+        .footerTop {
+            display: flex;
+            justify-content: space-between;
+
+            span {
+                color: #595959;
+                font-size: 16px;
+            }
+        }
+    }
+
+    .image {
+        margin-top: 30px;
+    }
+
+    .endPost {
+        width: 600px;
+        margin: 30px auto 0 auto;
+
+        .hashTags {
+            font-size: 18px;
+
+            span {
+                color: #3766a9;
+                border-bottom: 1px solid #bed0ea;
+                cursor: pointer;
+                margin-right: 10px;
+            }
+        }
+
+        .icons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .author {
+            margin-top: 30px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            a {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .left {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 360px;
+
+                    .avatar {
+                        border: 1px solid rgb(235, 235, 235);
+                        border-radius: 20%;
+                    }
+
+                    .info {
+                        display: flex;
+                        align-items: center;
+                        height: 25px;
+                        width: 309px;
+
+                        .name {
+                            font-size: 18px;
+                            font-weight: 500;
+                            margin-right: 20px;
+                        }
+
+                        .carma {
+                            color: #2ea83a;
+                            font-weight: 500;
+                            font-size: 16px;
+                        }
+                    }
+                }
+            }
+
+            .right {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+}

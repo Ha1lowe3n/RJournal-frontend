@@ -1,0 +1,27 @@
+.icons {
+    display: flex;
+
+    .item {
+        margin-right: 33px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        span {
+            margin-left: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+        }
+
+        svg {
+            height: 24px;
+            width: 24px;
+        }
+
+        &:hover {
+            color: #3766a9;
+        }
+    }
+}

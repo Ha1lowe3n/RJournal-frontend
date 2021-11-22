@@ -1,0 +1,86 @@
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .topInformation {
+        display: flex;
+        height: 24px;
+        align-items: center;
+
+        .category {
+            display: flex;
+            justify-content: space-between;
+
+            margin-right: 20px;
+            cursor: pointer;
+
+            .categoryImg {
+                margin-right: 10px;
+                block-size: 22px;
+
+                img {
+                    border-radius: 4px;
+                }
+            }
+
+            .titleCategory {
+                font-size: 16px;
+                line-height: 1.5em;
+                font-weight: 500;
+            }
+
+            &:hover {
+                color: #3766a9;
+            }
+        }
+
+        .authorName {
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 400;
+            margin-right: 20px;
+            height: inherit;
+            text-align: center;
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                color: #3766a9;
+            }
+        }
+
+        time {
+            font-size: 15px;
+            font-weight: 400;
+            height: inherit;
+            display: flex;
+            align-items: center;
+            color: #595959;
+        }
+    }
+
+    .addBtn {
+        display: block;
+        color: rgb(55, 102, 169);
+        height: 20px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+
+        span {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        svg {
+            margin-right: 4px;
+            height: 20px;
+            width: 20px;
+        }
+
+        &:hover {
+            background-color: transparent;
+        }
+    }
+}
