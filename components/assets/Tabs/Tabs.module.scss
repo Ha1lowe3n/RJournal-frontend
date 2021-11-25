@@ -1,10 +1,11 @@
 .categories {
     display: flex;
     justify-content: space-between;
-    margin-top: 4px;
+    align-items: center;
+    height: 60px;
 
     .category {
-        height: 60px;
+        height: inherit;
         display: flex;
         align-items: center;
     }

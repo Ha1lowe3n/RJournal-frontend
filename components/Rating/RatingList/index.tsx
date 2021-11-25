@@ -1,4 +1,4 @@
-import { Paper } from "@mui/material";
+import { Divider, Paper } from "@mui/material";
 import clsx from "clsx";
 import React, { useMemo } from "react";
 
@@ -41,13 +41,16 @@ export const RatingList: React.FC = React.memo(function RatingList() {
             </div>
             <div className={styles.items}>
                 {items.map((item, i) => (
-                    <RatingItem
-                        key={item.title + i}
-                        place={item.place}
-                        title={item.title}
-                        rating={item.rating}
-                        image={item.image}
-                    />
+                    <>
+                        <RatingItem
+                            key={item.title + i}
+                            place={item.place}
+                            title={item.title}
+                            rating={item.rating}
+                            image={item.image}
+                        />
+                        <Divider />
+                    </>
                 ))}
             </div>
             <div className={styles.showMore}>

@@ -42,7 +42,9 @@ export const ProfileComponent: React.FC = React.memo(
                             <div>2 подписчика</div>
                         </div>
 
-                        <div className="mt-20">На проекте с 15 ноя 2021</div>
+                        <div className="mt-20 mb-5">
+                            На проекте с 15 ноя 2021
+                        </div>
 
                         <Tabs
                             categories={categories}
