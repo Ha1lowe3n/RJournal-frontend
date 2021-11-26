@@ -18,20 +18,18 @@ export const MainLayout: React.FC<MainLayoutProps> = React.memo(
         className,
     }) {
         return (
-            <>
-                <div className={clsx("wrapper", className)}>
-                    <LeftMenu />
+            <div className={clsx("wrapper", className)}>
+                <LeftMenu />
 
-                    <div
-                        className={clsx("content", {
-                            "content--full": contentFullWidth,
-                        })}
-                    >
-                        {children}
-                    </div>
-                    {!hideComments && <SideComments />}
+                <div
+                    className={clsx("content", {
+                        "content--full": contentFullWidth,
+                    })}
+                >
+                    {children}
                 </div>
-            </>
+                {!hideComments && <SideComments />}
+            </div>
         );
     }
 );

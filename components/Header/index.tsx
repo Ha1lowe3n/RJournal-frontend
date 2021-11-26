@@ -43,7 +43,12 @@ export const Header: React.FC = React.memo(function Header() {
                     </svg>
                     <input placeholder="Поиск" />
                 </div>
-                <TJButton>Новая запись</TJButton>
+
+                <Link href="/write">
+                    <a>
+                        <TJButton>Новая запись</TJButton>
+                    </a>
+                </Link>
             </div>
 
             <div className="d-flex align-center">
