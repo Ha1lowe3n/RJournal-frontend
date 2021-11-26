@@ -6,7 +6,7 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import CheckIcon from "@mui/icons-material/Check";
 import styles from "./RatingItem.module.scss";
 
-import { TJButton } from "../../../assets/TJButton";
+import { TJButton } from "../../assets/TJButton";
 
 interface RatingItemProps {
     title: string;
