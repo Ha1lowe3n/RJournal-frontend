@@ -1,12 +1,21 @@
 import React, { useMemo } from "react";
 
-import { Avatar, Divider, Paper } from "@mui/material";
+import { Divider, Paper } from "@mui/material";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import styles from "./Comments.module.scss";
 
 import { Tabs } from "../assets/Tabs";
+import { Comment } from "./Comment";
+import { CommentFullInfo } from "../../pages/news/[slug]";
+import { CommentForm } from "./CommentForm";
 
-export const Comments: React.FC = React.memo(function Comments() {
+interface CommentsProps {
+    items: CommentFullInfo[];
+}
+
+export const Comments: React.FC<CommentsProps> = React.memo(function Comments({
+    items,
+}) {
     const categories = useMemo(() => {
         return ["Популярные", "По порядку"];
     }, []);
@@ -22,10 +31,32 @@ export const Comments: React.FC = React.memo(function Comments() {
                         categories={categories}
                         style={{ width: "195px", height: "50px" }}
                     />
-                    <NotificationsNoneOutlinedIcon />
+                    <div className={styles.icon}>
+                        <NotificationsNoneOutlinedIcon
+                            style={{
+                                width: "25px",
+                                height: "25px",
+                            }}
+                        />
+                    </div>
                 </div>
             </div>
-            <Divider />
+
+            <Divider style={{ marginBottom: "20px" }} />
+
+            <div className={styles.content}>
+                <CommentForm />
+
+                {items.map((item, i) => (
+                    <Comment
+                        key={item.id + i}
+                        text={item.text}
+                        createdAt={item.createdAt}
+                        user={item.user}
+                        carmaCount={item.carmaCount}
+                    />
+                ))}
+            </div>
         </Paper>
     );
 });

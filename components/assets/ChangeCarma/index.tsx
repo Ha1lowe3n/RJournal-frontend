@@ -1,18 +1,20 @@
-import { IconButton } from "@mui/material";
-import React from "react";
+import React, { DetailedHTMLProps, HTMLAttributes } from "react";
+import clsx from "clsx";
 
+import { IconButton } from "@mui/material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import styles from "./ChangeCarma.module.scss";
 
-interface ChangeCarmaProps {
+interface ChangeCarmaProps
+    extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
     carmaCount: number;
 }
 
 export const ChangeCarma: React.FC<ChangeCarmaProps> = React.memo(
-    function ChangeCarma({ carmaCount }) {
+    function ChangeCarma({ carmaCount, className }) {
         return (
-            <div className={styles.carmaUp}>
+            <div className={clsx(styles.carmaUp, className)}>
                 <IconButton
                     style={{
                         height: "24px",
@@ -22,7 +24,9 @@ export const ChangeCarma: React.FC<ChangeCarmaProps> = React.memo(
                 >
                     <KeyboardArrowDownIcon />
                 </IconButton>
+
                 <span>{carmaCount}</span>
+
                 <IconButton
                     style={{
                         height: "24px",

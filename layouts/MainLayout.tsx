@@ -1,8 +1,9 @@
 import React from "react";
 import clsx from "clsx";
+
 import { LeftMenu } from "../components/LeftMenu";
 import { SideComments } from "../components/SideComments";
-import { Header } from "../components/Header";
+import { items } from "../pages/news/[slug]";
 
 interface MainLayoutProps {
     hideComments?: boolean;
@@ -28,7 +29,7 @@ export const MainLayout: React.FC<MainLayoutProps> = React.memo(
                 >
                     {children}
                 </div>
-                {!hideComments && <SideComments />}
+                {!hideComments && <SideComments comments={items} />}
             </div>
         );
     }
