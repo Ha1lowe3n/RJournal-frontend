@@ -34,4 +34,14 @@
     &Posts {
         overflow: hidden;
     }
+
+    .hidden {
+        transform-origin: 100%;
+        transform: rotate(-90deg) translateX(15px);
+        align-self: flex-end;
+
+        svg {
+            transform: rotate(270deg);
+        }
+    }
 }

@@ -68,7 +68,7 @@ const News: NextPage = React.memo(function News() {
     return (
         <MainLayout contentFullWidth>
             <FullPost />
-            <Comments items={items} />
+            <Comments />
         </MainLayout>
     );
 });

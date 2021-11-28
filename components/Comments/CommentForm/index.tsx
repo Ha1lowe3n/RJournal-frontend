@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import InsertPhotoOutlinedIcon from "@mui/icons-material/InsertPhotoOutlined";
 import styles from "./CommentForm.module.scss";

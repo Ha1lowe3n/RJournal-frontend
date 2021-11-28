@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 
 import { Divider, Paper } from "@mui/material";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
@@ -6,19 +6,28 @@ import styles from "./Comments.module.scss";
 
 import { Tabs } from "../assets/Tabs";
 import { Comment } from "./Comment";
-import { CommentFullInfo } from "../../pages/news/[slug]";
+import { CommentFullInfo, items } from "../../pages/news/[slug]";
 import { CommentForm } from "./CommentForm";
 
-interface CommentsProps {
-    items: CommentFullInfo[];
-}
+// interface CommentsProps {
+//     items: CommentFullInfo[];
+// }
 
-export const Comments: React.FC<CommentsProps> = React.memo(function Comments({
-    items,
-}) {
+export const Comments: React.FC = React.memo(function Comments() {
+    const [activeTab, setActiveTab] = useState<number>(0);
+
     const categories = useMemo(() => {
         return ["Популярные", "По порядку"];
     }, []);
+
+    const sortCategories = useMemo(() => {
+        if (activeTab === 0) {
+            return items.sort((a, b) => b.carmaCount - a.carmaCount);
+        } else {
+            console.log("1");
+            return items.sort((a, b) => a.carmaCount - b.carmaCount);
+        }
+    }, [activeTab]);
 
     return (
         <Paper elevation={0} className={styles.comments}>
@@ -30,6 +39,8 @@ export const Comments: React.FC<CommentsProps> = React.memo(function Comments({
                     <Tabs
                         categories={categories}
                         style={{ width: "195px", height: "50px" }}
+                        active={activeTab}
+                        setActive={setActiveTab}
                     />
                     <div className={styles.icon}>
                         <NotificationsNoneOutlinedIcon
@@ -47,9 +58,9 @@ export const Comments: React.FC<CommentsProps> = React.memo(function Comments({
             <div className={styles.content}>
                 <CommentForm />
 
-                {items.map((item, i) => (
+                {sortCategories.map((item, i) => (
                     <Comment
-                        key={item.id + i}
+                        key={item.id}
                         text={item.text}
                         createdAt={item.createdAt}
                         user={item.user}

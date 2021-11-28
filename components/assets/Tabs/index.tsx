@@ -1,22 +1,24 @@
 import clsx from "clsx";
 import Link from "next/link";
-import React, { DetailedHTMLProps, HTMLAttributes, useState } from "react";
+import React, { DetailedHTMLProps, HTMLAttributes } from "react";
 
 import styles from "./Tabs.module.scss";
 
 interface TabsProps
     extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
     categories: string[];
+    active: number;
+    setActive: (active: number) => void;
 }
 
 export const Tabs: React.FC<TabsProps> = React.memo(function Tabs({
     categories,
     className,
     style,
+    active,
+    setActive,
     ...props
 }) {
-    const [active, setActive] = useState<number>(0);
-
     return (
         <div
             className={clsx(styles.categories, className)}
