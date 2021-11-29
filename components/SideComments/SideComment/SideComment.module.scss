@@ -6,6 +6,11 @@
         align-items: center;
         margin-bottom: 6px;
 
+        a {
+            display: flex;
+            align-items: center;
+        }
+
         img {
             // block-size: 24px;
             border-radius: 8px;

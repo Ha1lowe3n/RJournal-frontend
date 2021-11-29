@@ -13,6 +13,8 @@ import clsx from "clsx";
 export const LeftMenu: React.FC = React.memo(function LeftMenu() {
     const router = useRouter();
 
+    console.log(router);
+
     return (
         <div className={styles.menu}>
             <ul>

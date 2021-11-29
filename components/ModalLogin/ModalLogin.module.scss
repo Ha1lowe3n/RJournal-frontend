@@ -1,8 +1,118 @@
 .shadow {
-    height: 100vh;
-    width: 100vh;
-    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 999;
     display: flex;
+    padding: 36px 16px;
     justify-content: center;
     align-items: center;
+
+    .modal {
+        width: 640px;
+        height: 600px;
+        display: flex;
+        border-radius: 8px;
+        position: relative;
+
+        .image {
+            border-radius: 8px 0 0 8px;
+            height: 100%;
+            width: 212px;
+            padding: 25px 30px;
+            background-image: url("https://leonardo.osnova.io/b6bd61b5-eb5b-34db-8501-2fcc54cd051b/-/format/webp/");
+            background-color: #fff4e2;
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            background-size: contain;
+            background-size: cover;
+
+            svg {
+                height: 35px;
+                width: 35px;
+            }
+        }
+
+        .right {
+            flex-grow: 1;
+            padding: 24px 50px;
+
+            .close {
+                padding: 16px;
+                position: absolute;
+                right: 0;
+                top: 0;
+
+                button {
+                    padding: 0;
+
+                    svg {
+                        height: 24px;
+                        width: 24px;
+                    }
+
+                    &:hover {
+                        background-color: transparent;
+                        color: black;
+                    }
+                }
+            }
+
+            .auth {
+                .title {
+                    margin: 114px 0 16px 0;
+                    font-size: 24px;
+                    font-weight: 500;
+                }
+            }
+
+            .buttons {
+                height: 176px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+
+                button {
+                    width: 100%;
+
+                    .button {
+                        width: inherit;
+                        display: flex;
+                        align-items: center;
+
+                        svg {
+                            margin-left: 10px;
+                        }
+                        .img {
+                            margin-left: 10px !important;
+                        }
+
+                        .title {
+                            flex-basis: 80%;
+                        }
+                    }
+                }
+            }
+
+            .footer {
+                font-size: 16px;
+                margin-top: 16px;
+
+                button {
+                    color: #3766a9;
+                    cursor: pointer;
+                    background-color: transparent;
+                    font-size: 16px;
+                    margin-left: 7px;
+
+                    &:hover {
+                        color: red;
+                    }
+                }
+            }
+        }
+    }
 }

@@ -12,9 +12,11 @@ export interface CommentFullInfo {
     user: {
         fullname: string;
         avatarUrl: string;
+        id: number;
     };
     post: {
         title: string;
+        id: number;
     };
     carmaCount: number;
 }
@@ -28,9 +30,11 @@ export const items: CommentFullInfo[] = [
             fullname: "vasya pujpkin",
             avatarUrl:
                 "https://leonardo.osnova.io/ffe28fb2-3cc1-584b-9efb-e50974e91ad8/-/scale_crop/64x64/-/format/webp/",
+            id: 1,
         },
         post: {
             title: "Мигранты",
+            id: 1,
         },
         carmaCount: 5,
     },
@@ -42,9 +46,11 @@ export const items: CommentFullInfo[] = [
             fullname: "vasya pujpkin",
             avatarUrl:
                 "https://leonardo.osnova.io/ffe28fb2-3cc1-584b-9efb-e50974e91ad8/-/scale_crop/64x64/-/format/webp/",
+            id: 1,
         },
         post: {
             title: "Мигранты",
+            id: 1,
         },
         carmaCount: 10,
     },
@@ -56,9 +62,11 @@ export const items: CommentFullInfo[] = [
             fullname: "vasya pujpkin",
             avatarUrl:
                 "https://leonardo.osnova.io/ffe28fb2-3cc1-584b-9efb-e50974e91ad8/-/scale_crop/64x64/-/format/webp/",
+            id: 1,
         },
         post: {
             title: "Мигранты",
+            id: 1,
         },
         carmaCount: 15,
     },
