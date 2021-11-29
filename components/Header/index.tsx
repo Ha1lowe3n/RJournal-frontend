@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import clsx from "clsx";
 
 import { Paper, IconButton, Avatar } from "@mui/material";
 import SmsOutlinedIcon from "@mui/icons-material/SmsOutlined";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import styles from "./Header.module.scss";
 
 import { TJButton } from "../assets/TJButton";
 
 export const Header: React.FC = React.memo(function Header() {
-    console.log("header rerender");
+    const [login, setLogin] = useState<boolean>(false);
+    const [showMenuAvatar, setShowMenuAvatar] = useState<boolean>(false);
+
+    const toggleLogin = () => setLogin(!login);
+    const toggleShowMenuAvatar = () => setShowMenuAvatar(!showMenuAvatar);
 
     return (
         <Paper classes={{ root: styles.root }} elevation={0} square={true}>
@@ -51,25 +58,70 @@ export const Header: React.FC = React.memo(function Header() {
                 </Link>
             </div>
 
-            <div className="d-flex align-center">
-                <IconButton className={styles.iconButton}>
-                    <SmsOutlinedIcon />
-                </IconButton>
+            <div className={styles.right}>
+                {login && (
+                    <IconButton className={styles.iconButton}>
+                        <SmsOutlinedIcon />
+                    </IconButton>
+                )}
 
                 <IconButton className={styles.iconButton + " " + "ml-10"}>
                     <NotificationsNoneOutlinedIcon />
                 </IconButton>
 
-                <Link href="/profile/1">
-                    <a className={styles.avatarBlock}>
-                        <Avatar
-                            className={styles.avatar}
-                            alt="Remy Sharp"
-                            src="https://leonardo.osnova.io/5ffeac9a-a0e5-5be6-98af-659bfaabd2a6/-/scale_crop/108x108/-/format/webp/"
+                {login ? (
+                    <div className={styles.avatarBlock}>
+                        <Link href="/profile/1">
+                            <a>
+                                <Avatar
+                                    className={styles.avatar}
+                                    alt="Remy Sharp"
+                                    src="https://leonardo.osnova.io/5ffeac9a-a0e5-5be6-98af-659bfaabd2a6/-/scale_crop/108x108/-/format/webp/"
+                                />
+                            </a>
+                        </Link>
+                        <KeyboardArrowDownIcon
+                            className={styles.arrow}
+                            onClick={toggleShowMenuAvatar}
                         />
-                        <KeyboardArrowDownIcon />
-                    </a>
-                </Link>
+                    </div>
+                ) : (
+                    <IconButton
+                        className={clsx(styles.iconButton, styles.login)}
+                        disableRipple
+                        onClick={() => setLogin(true)}
+                    >
+                        <PersonOutlineOutlinedIcon />
+                        <span>Войти</span>
+                    </IconButton>
+                )}
+                {showMenuAvatar && (
+                    <Paper elevation={0} className={styles.menuAvatar}>
+                        <span>Профиль</span>
+                        <div className={styles.item}>
+                            <Link href="/profile/1">
+                                <a>
+                                    <Avatar
+                                        alt="Remy Sharp"
+                                        src="https://leonardo.osnova.io/5ffeac9a-a0e5-5be6-98af-659bfaabd2a6/-/scale_crop/108x108/-/format/webp/"
+                                    />
+                                </a>
+                            </Link>
+                            <span>Вася Пупкин</span>
+                        </div>
+                        <div
+                            className={clsx(styles.item, styles.exit)}
+                            onClick={() => {
+                                setLogin(false);
+                                setShowMenuAvatar(false);
+                            }}
+                        >
+                            <LogoutOutlinedIcon />
+
+                            <span>Выход</span>
+                        </div>
+                    </Paper>
+                )}
             </div>
         </Paper>
     );

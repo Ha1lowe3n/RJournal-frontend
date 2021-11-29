@@ -51,22 +51,115 @@
     }
 }
 
-.avatarBlock {
+.right {
     display: flex;
     align-items: center;
+    position: relative;
 
-    .avatar {
-        margin-left: 15px;
-        border-radius: 20%;
-        margin-right: 6px;
+    .avatarBlock {
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        .avatar {
+            margin-left: 15px;
+            border-radius: 20%;
+            margin-right: 6px;
+        }
+
+        .arrow {
+            cursor: pointer;
+        }
     }
-}
 
-.iconButton {
-    color: black;
+    .menuAvatar {
+        width: 200px;
+        position: absolute;
+        left: 0;
+        bottom: -106px;
+        box-shadow: 0 0 0 1px rgb(0 0 0 / 7%), 0 4px 8px 0 rgb(0 0 0 / 7%);
+        border-radius: 4px;
+        z-index: 1000;
 
-    &:hover {
-        color: orange;
-        background-color: transparent;
+        .item {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            height: 36px;
+
+            svg {
+                width: 20px;
+                height: 20px;
+                margin: 0 10px;
+            }
+
+            span {
+                padding: 0;
+                font-size: 14px;
+                color: black;
+                font-weight: 700;
+            }
+
+            img {
+                width: 20px;
+                height: 20px;
+                border-radius: 2px;
+            }
+
+            &:hover {
+                background: #f4f5f6;
+            }
+        }
+
+        .exit {
+            color: rgb(233, 42, 64);
+
+            span {
+                font-weight: 400;
+                color: rgb(233, 42, 64);
+            }
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            width: 10px;
+            height: 10px;
+            top: -5px;
+            right: 24px;
+            background-color: #fff;
+            box-shadow: 1px -1px 0 0.1px rgb(0 0 0 / 7%);
+            transform: rotate(315deg);
+        }
+
+        span {
+            display: block;
+            font-size: 11px;
+            color: #595959;
+            padding: 6px 12px 6px;
+        }
+    }
+
+    .iconButton {
+        color: black;
+
+        svg {
+            height: 28px;
+            width: 28px;
+        }
+
+        &:hover {
+            color: orange;
+            background-color: transparent;
+        }
+    }
+
+    .login {
+        span {
+            margin-left: 8px;
+            font-size: 16px;
+            font-weight: 500;
+        }
     }
 }
